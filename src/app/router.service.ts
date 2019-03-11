@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +12,23 @@ export class RouterService {
   public page = 1;
 
   constructor(private router: Router) {
-
+    this.router.events
+                  .pipe(
+                    filter(
+                      (event) => event instanceof NavigationEnd
+                    )
+                  )
+                  .subscribe((event: NavigationEnd) => {
+                      if (event.url === '/page1') {
+                        this.page = 1;
+                      } else if (event.url === '/page2') {
+                        this.page = 2;
+                      } else if (event.url === '/page3') {
+                        this.page = 3;
+                      } else if (event.url === '/page4') {
+                        this.page = 4;
+                      }
+                  });
   }
 
   public gotToPage(nextPage: number): void {
