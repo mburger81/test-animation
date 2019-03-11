@@ -2,8 +2,9 @@
     MAIN
     <div class="container">
         <div class="login-card card">
-            <div [@loginRouteSlideInAnimation]="routerService.page"
-                 (@loginRouteSlideInAnimation.done)="handleDone($event)"
+            <div [@loginRouteSlideInAnimation]="prepareRouter(o)"
+                 (@loginRouteSlideInAnimation.start)="captureStartEvent($event)"
+                 (@loginRouteSlideInAnimation.done)="captureDoneEvent($event)"
                  style="overflow: hidden;">
                 <router-outlet #o="outlet"></router-outlet>
             <div>

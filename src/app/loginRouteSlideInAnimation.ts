@@ -1,4 +1,4 @@
-import { animate, group, style, transition, trigger, query } from '@angular/animations';
+import { animate, group, style, transition, trigger, query, animateChild } from '@angular/animations';
 
 
 export const loginRouteSlideInAnimation =
@@ -21,7 +21,8 @@ export const loginRouteSlideInAnimation =
           { optional: true }
         )
       ])
-    ]),
+    ])
+    ,
     transition(':decrement', [
       query(
         ':enter',

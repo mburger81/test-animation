@@ -19,6 +19,8 @@ export class RouterService {
                     )
                   )
                   .subscribe((event: NavigationEnd) => {
+                      // console.log('event', event);
+
                       if (event.url === '/page1') {
                         this.page = 1;
                       } else if (event.url === '/page2') {
@@ -38,13 +40,13 @@ export class RouterService {
     console.log('go to page:', this.page);
 
     if (this.page === 1) {
-      this.router.navigate(['/page1']);
+      this.router.navigateByUrl('/page1');
     } else if (this.page === 2) {
-        this.router.navigate(['/page2']);
+      this.router.navigateByUrl('/page2');
     } else if (this.page === 3) {
-        this.router.navigate(['/page3']);
+      this.router.navigateByUrl('/page3');
     } else if (this.page === 4) {
-        this.router.navigate(['/page4']);
+      this.router.navigateByUrl('/page4');
     }
   }
 }
