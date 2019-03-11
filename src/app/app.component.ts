@@ -14,4 +14,10 @@ export class AppComponent {
   title = 'test-animation';
 
   constructor(public routerService: RouterService) {}
+
+  public handleDone( event: any ): void {
+
+      console.log(event);
+
+}
 }
