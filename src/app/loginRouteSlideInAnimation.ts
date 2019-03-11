@@ -21,8 +21,7 @@ export const loginRouteSlideInAnimation =
           { optional: true }
         )
       ])
-    ])
-    ,
+    ]),
     transition(':decrement', [
       query(
         ':enter',
